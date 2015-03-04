@@ -84,7 +84,15 @@
 				<artifactId>standard</artifactId>
 				<version>1.1.2</version>
 				<scope>runtime</scope>
-			</dependency>       
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>3.0.1</version>
+				<scope>provided</scope>
+			</dependency>
+			
   </dependencies>
    <build>
        <finalName>RoleAuth</finalName>
@@ -93,26 +101,14 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<version>2.8</version>
-				<configuration>
-				<!-- <workDirectory>target/overlay-war-folder</workDirectory>  -->
-				<warSourceDirectory>src/main/webapp</warSourceDirectory>
-				<!-- <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes> -->
-				<warSourceExcludes>WEB-INF/lib/activation-1.1.jar</warSourceExcludes>
-				
-                </configuration>
+
 			</plugin>
 			
 			<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.10</version>
-                <configuration>
-				<!-- <workDirectory>target/overlay-war-folder</workDirectory>  -->
-				<warSourceDirectory>src/main/webapp</warSourceDirectory>
-				<!-- <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes> -->
-				<warSourceExcludes>WEB-INF/lib/activation-1.1.jar</warSourceExcludes>
-				
-                </configuration>
+                
             </plugin>
        </plugins>
     </build>

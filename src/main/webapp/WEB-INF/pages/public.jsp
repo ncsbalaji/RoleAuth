@@ -1,5 +1,6 @@
 <%@ page session="true" %>
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ include file="header.html" %>
 
@@ -71,7 +72,7 @@
 			</script>
      </head>
      <body>
-         <h1>Welcome!  <sec:authentication property="principal.username"/> </h1>
+         <h1>Welcome!  <sec:authentication property="principal.authorities"/> </h1>
          <h4>${message}</h4>
           ${HelloMessage} 
           
@@ -81,10 +82,21 @@
 		<div id="chart_div3_tab"></div>
 		<div id="footer"></div>
 		
+		<c:set var="role">
+		<sec:authentication property="principal.authorities" /> 
+		</c:set>
+		
 		<select id="ddlName">
-			<option value="line">Line Chart</option>
-			<option value="bar">Bar Chart</option>
-			<option value="pie">Pie Chart</option>
+			<c:choose>
+	      			<c:when test="${fn:containsIgnoreCase(role, 'admin')}">
+	      				<option value="line">Line Chart</option>
+						<option value="bar">Bar Chart</option>
+						<option value="pie">Pie Chart</option>
+	      			</c:when>
+	     		<c:otherwise>
+	     				<option value="line">Line Chart</option>
+	     		 </c:otherwise>
+			</c:choose>
 		</select>
         <a href="<c:url value='j_spring_security_logout'/>">Click here to logout</a>
      </body>

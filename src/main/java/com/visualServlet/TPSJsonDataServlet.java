@@ -54,7 +54,7 @@ public class TPSJsonDataServlet extends HttpServlet {
 			String jsonString = gson.toJson(tpsList);
 			System.out.println("jsonString: "+jsonString);
 			
-			System.out.println("uname "+request.getParameter("uname"));
+			//System.out.println("uname "+request.getParameter("uname"));
 			
 			
 			/*ClientConfig config = new DefaultClientConfig();
