@@ -12,11 +12,27 @@
   
   <dependencies>
     
-           <dependency>
+           <!-- <dependency>
                 <groupId>com.sun.jersey</groupId>
                 <artifactId>jersey-server</artifactId>
                 <version>1.8</version>
            </dependency>
+			<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-json</artifactId>
+				<version>1.18.1</version>
+			</dependency> -->
+			<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-client</artifactId>
+				<version>1.9.1</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>2.2.2</version>
+			</dependency>
            
            <dependency>
 				<groupId>mysql</groupId>
@@ -47,7 +63,28 @@
             <artifactId>spring-security-config</artifactId>
             <version>${spring-security.version}</version>
           </dependency>
-          
+          <dependency>
+    		<groupId>org.springframework.security</groupId>
+    		<artifactId>spring-security-taglibs</artifactId>
+   		 	<version>${spring-security.version}</version>
+    		<type>jar</type>
+		  </dependency>   
+		  
+			<!-- taglib dependencies -->
+		
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>1.2</version>
+				<scope>runtime</scope>
+			</dependency>
+		
+			<dependency>
+				<groupId>taglibs</groupId>
+				<artifactId>standard</artifactId>
+				<version>1.1.2</version>
+				<scope>runtime</scope>
+			</dependency>       
   </dependencies>
    <build>
        <finalName>RoleAuth</finalName>
